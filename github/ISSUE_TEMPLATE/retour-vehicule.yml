@@ -1,0 +1,65 @@
+name: Retour de test sur mon véhicule
+description: Dites ce qui remonte (ou pas) sur votre Xpeng
+title: "[Retour] "
+labels: ["retour-vehicule"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci ! Même un retour partiel est utile. Si un PID ne répond pas, dites-le aussi — c'est aussi informatif qu'un succès.
+
+  - type: input
+    id: modele
+    attributes:
+      label: Modèle et millésime
+      placeholder: "G6 Performance AWD 2026"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: chimie
+    attributes:
+      label: Chimie de batterie
+      description: "Regardez vos tensions de cellules : ~3,3 V à mi-charge = LFP, ~3,7-3,9 V = NMC"
+      options:
+        - LFP
+        - NMC
+        - Je ne sais pas
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: pids
+    attributes:
+      label: Ce qui remonte correctement
+      options:
+        - label: SOC (état de charge)
+        - label: ODOMETER (odomètre)
+        - label: HV_V (tension pack)
+        - label: HV_A (courant batterie)
+        - label: HV_T_MAX / HV_T_MIN (températures)
+        - label: HV_C_V_MAX / HV_C_V_MIN (tensions cellule)
+
+  - type: textarea
+    id: echecs
+    attributes:
+      label: Ce qui ne répond pas
+      description: Collez la réponse du bouton "Test" du WiCAN si vous l'avez
+      placeholder: "HV_V -> Error: No response"
+
+  - type: textarea
+    id: nouveaux
+    attributes:
+      label: PID supplémentaires trouvés
+      description: Si vous avez trouvé un PID qui marche et qui n'est pas dans le profil, donnez le PID, l'expression et la valeur obtenue
+      placeholder: |
+        PID : 22XXXX1
+        Init : ATSH704;ATCRA784;
+        Expression : [B4:B5]/10
+        Valeur lue : 97,5 % (cohérent avec l'app)
+
+  - type: input
+    id: firmware
+    attributes:
+      label: Version de firmware WiCAN
+      placeholder: "4.49"
