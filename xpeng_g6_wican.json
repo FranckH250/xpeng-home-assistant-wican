@@ -1,0 +1,103 @@
+{
+  "cars": [
+    {
+      "car_model": "Xpeng: G6 (essentiel)",
+      "init": "ATH1;ATSP6;ATS0;ATM0;ATAT1;ATSH704;ATCRA784;ATFCSH704;ATFCSM1;",
+      "pids": [
+        {
+          "pid": "2211091",
+          "parameters": [
+            {
+              "name": "SOC",
+              "expression": "[B4:B5]/10",
+              "unit": "%",
+              "class": "battery",
+              "min": "0",
+              "max": "100"
+            }
+          ]
+        },
+        {
+          "pid": "2201011",
+          "parameters": [
+            {
+              "name": "ODOMETER",
+              "expression": "[B5:B6]",
+              "unit": "km",
+              "class": "distance",
+              "min": "0"
+            }
+          ]
+        },
+        {
+          "pid": "2211011",
+          "parameters": [
+            {
+              "name": "HV_V",
+              "expression": "[B4:B5]/10",
+              "unit": "V",
+              "class": "voltage",
+              "min": "200",
+              "max": "800"
+            }
+          ]
+        },
+        {
+          "pid": "2211031",
+          "parameters": [
+            {
+              "name": "HV_A",
+              "expression": "(B4*256+B5)*0.5-1600",
+              "unit": "A",
+              "class": "current"
+            }
+          ]
+        },
+        {
+          "pid": "2211071",
+          "parameters": [
+            {
+              "name": "HV_T_MAX",
+              "expression": "B4-40",
+              "unit": "°C",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "2211081",
+          "parameters": [
+            {
+              "name": "HV_T_MIN",
+              "expression": "B4-40",
+              "unit": "°C",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "2211051",
+          "parameters": [
+            {
+              "name": "HV_C_V_MAX",
+              "expression": "[B4:B5]/1000",
+              "unit": "V",
+              "class": "voltage"
+            }
+          ]
+        },
+        {
+          "pid": "2211061",
+          "parameters": [
+            {
+              "name": "HV_C_V_MIN",
+              "expression": "[B4:B5]/1000",
+              "unit": "V",
+              "class": "voltage"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
